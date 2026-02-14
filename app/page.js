@@ -725,7 +725,7 @@ export default function Home() {
           {/* Bottom Bar */}
           <div className="pt-12 border-t border-white/5 flex flex-col md:row items-center justify-between gap-6">
             <p className="text-gray-500 text-xs font-medium">
-              © 2026 SmartDR. All rights reserved. Developed by Apon.
+              © 2026 SmartDR. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <span className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">
