@@ -19,6 +19,7 @@ model User {
   role              UserRole  @default(UNASSIGNED) // UNASSIGNED, PATIENT, DOCTOR, ADMIN
   createdAt         DateTime  @default(now())
   updatedAt         DateTime  @updatedAt
+  aiConsultations AIConsultation[]
   
   // Patient-specific fields
   credits           Int       @default(2) // Accumulated credit balance
@@ -130,6 +131,16 @@ model Payout {
 
   @@index([status, createdAt])
   @@index([doctorId, status])
+}
+model AIConsultation {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  symptoms    String   @db.Text
+  aiResponse  String   @db.Text
+  createdAt   DateTime @default(now())
+
+  @@index([userId])
 }
 
 enum PayoutStatus {

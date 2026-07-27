@@ -4,6 +4,7 @@ import {
   Calendar,
   CreditCard,
   ShieldCheck,
+  Sparkles, // <-- এখানে Sparkles আইকনটি যোগ করা হয়েছে
   Stethoscope,
   User,
 } from "lucide-react";
@@ -70,18 +71,35 @@ export default async function Header() {
 
             {/* Patient Links */}
             {user?.role === "PATIENT" && (
-              <Link href="/appointments">
-                <Button
-                  variant="outline"
-                  className="hidden md:inline-flex items-center gap-2"
-                >
-                  <Calendar className="h-4 w-4" />
-                  My Appointments
-                </Button>
-                <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
-                  <Calendar className="h-4 w-4" />
-                </Button>
-              </Link>
+              <>
+                {/* AI Consultancy Button (নতুন যুক্ত করা হয়েছে) */}
+                <Link href="/ai-consultancy">
+                  <Button
+                    variant="outline"
+                    className="hidden md:inline-flex items-center gap-2 border-primary/30 text-primary hover:bg-primary/5"
+                  >
+                    <Sparkles className="h-4 w-4 text-primary" />
+                    AI Health Assistant
+                  </Button>
+                  <Button variant="ghost" className="md:hidden w-10 h-10 p-0 text-primary">
+                    <Sparkles className="h-4 w-4" />
+                  </Button>
+                </Link>
+
+                {/* My Appointments Button */}
+                <Link href="/appointments">
+                  <Button
+                    variant="outline"
+                    className="hidden md:inline-flex items-center gap-2"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    My Appointments
+                  </Button>
+                  <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
+                    <Calendar className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </>
             )}
 
             {/* Unassigned Role */}
